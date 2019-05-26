@@ -1,0 +1,11 @@
+#!/bin/bash
+
+du -sh /var/cache/apt/archives
+
+apt-get update && apt-get upgrade -y
+
+apt-get autoremove --purge
+
+apt-get clean
+
+sync; echo 3 > /proc/sys/vm/drop_caches
